@@ -14,6 +14,7 @@
     ./imports/neovim.nix
     ./imports/zsh.nix
     ./imports/audio.nix
+#    ./imports/1pass.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
@@ -72,6 +73,7 @@
     busybox
     vlc
     pavucontrol
+    gnupg
     nmap
     jellyfin-media-player
     miru
@@ -80,6 +82,8 @@
     lua-language-server
     wev
     brightnessctl
+    pass-wayland
+    pinentry-curses
   ];
 
 

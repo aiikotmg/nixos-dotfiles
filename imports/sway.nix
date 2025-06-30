@@ -60,8 +60,6 @@
         
         ];
 #        keycodebindings = {
-#          "232" = "exec light -U 30";
-#          "233" = "exec light -A 30";
 
 #        };
     };

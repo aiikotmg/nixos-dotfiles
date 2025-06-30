@@ -24,8 +24,13 @@
     "+"="brightnessctl s +10%";
     "-"="brightnessctl s 10%-";
 
-    rebuild="sudo nixos-rebuild switch --flake ~/#default";
-    rebuildup="sudo nixos-rebuild switch --upgrade --flake ~/#default";
+
+
+    #some quick shortcuts
+    # 
+    # TODO: CLEAN UP AND ADD FEATURES
+    rebuild="sudo nixos-rebuild switch --flake ~/#default && cp /home/hermes/flake.nix /home/hermes/nixos-dotfiles/flake.nix";
+    rebuildup="sudo nixos-rebuild switch --upgrade --flake ~/#default && cp /home/hermes/flake.nix /home/hermes/nixos-dotfiles/flake.nix";
     test="sudo nixos-rebuild test --flake ~/#default";
     showip="curl -4 ipaddress.ai";
   };

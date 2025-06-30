@@ -1,5 +1,6 @@
 # flake.nix
 
+
 {
   description = "NixOS config flake";
 

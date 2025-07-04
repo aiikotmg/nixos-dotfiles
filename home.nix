@@ -14,8 +14,9 @@
     ./imports/neovim.nix
     ./imports/zsh.nix
     ./imports/audio.nix
-#    ./imports/1pass.nix
+    ../git.nix
   ];
+
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
   
@@ -37,22 +38,6 @@
 #  ];
 
  
-  programs.git = {
-    enable = true;
-    package = pkgs.gitAndTools.gitFull;
-    userName = "aiikotmg";
-    userEmail = "sslerror@protonmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      color = { ui = "auto";};
-      pull.rebase = "false";
-      core.editor = "nvim";
-    };
-  };
-
-  programs.gitui.enable = true;  
-
-  
 #  programs.wireshark.enable = true;
   
   # introduces backwards incompatible changes.
@@ -64,9 +49,11 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  
   home.packages = with pkgs; [
 
     wl-clipboard
+    wayland
     wofi
     wget
     image-roll
@@ -81,11 +68,12 @@
     nil
     lua-language-server
     wev
+    fzf
+#    git
+    cargo
     brightnessctl
-    pass-wayland
-    pinentry-curses
-  ];
 
+  ];
 
 
   programs.bash.enable = true;
@@ -115,6 +103,7 @@
       };
     };
   };
+
 
    # programs.steam = {
  #   enable = true;

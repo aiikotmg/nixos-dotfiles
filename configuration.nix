@@ -10,10 +10,16 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+    
+
+      inputs.home-manager.nixosModules.default
+      ./hardware-configuration.nix
+
+      #local machine specific
       "${inputs.nixos-hardware}/common/cpu/intel/sandy-bridge"
       "${inputs.nixos-hardware}/lenovo/thinkpad/x230"
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+      ../1pass.nix
+      
     ];
 
 
@@ -73,21 +79,6 @@
   services.mullvad-vpn.enable = true;
 
 
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "1password-gui"
-    "1password"
-  ];
-  # Alternatively, you could also just allow all unfree packages
-  # nixpkgs.config.allowUnfree = true;
-
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    # Certain features, including CLI integration and system authentication support,
-    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = [ "hermes" ];
-  };
   #
   # POWER MANAGEMENT
   #
@@ -151,9 +142,11 @@
   security.polkit.enable = true;
 
 # Enables flakes.nix 
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Do the garbage collection & optimisation daily.
+
   nix.gc.automatic = true;
   nix.optimise.automatic = true;
 
@@ -164,7 +157,6 @@
     ksm.enable = true;
     cpu.intel.updateMicrocode = true;
 #    sensor.iio.enable = true;
-    #commented out for battery savings :)
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
     opengl = {
@@ -184,10 +176,10 @@
   #portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; 
   services.xserver.libinput.enable = true; # Allows use of laptop touchpad.
 
-#  programs.light.enable = true;
 
 
   # Enable sound with pipewire
+
   sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -200,6 +192,7 @@
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
   users.users.hermes = {
     isNormalUser = true;
     description = "hermes";
@@ -211,6 +204,8 @@
   };
 
 
+  # home manager setup
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -219,24 +214,20 @@
   };
 
   # Allow unfree packages
+
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  # most packages on are in the home.nix file
+
   environment.systemPackages = with pkgs; [
  
-
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     ranger
-    wayland
-    fzf
-    cargo
     gcc
-    git
     librewolf
     networkmanagerapplet
-   # wget
- #   libnotify
     killall
     
   ];

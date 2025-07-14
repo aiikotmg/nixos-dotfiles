@@ -6,6 +6,8 @@
     enable = true;
     plugins = with pkgs.vimPlugins; [
 #      LazyVim
+     
+      vim-ccls
       trouble-nvim
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
@@ -45,9 +47,12 @@
       opt.shiftwidth = 4
       opt.smartindent = true
 
+
+      
       --set language server for cmp :)
       --lsp.lua_ls.setup{}
       lsp.nil_ls.setup{}
+      --lsp.ccls.setup{}
 
       local cmp = require'cmp'
 

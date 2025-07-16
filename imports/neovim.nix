@@ -50,9 +50,9 @@
 
       
       --set language server for cmp :)
-      --lsp.lua_ls.setup{}
+      lsp.lua_ls.setup{}
       lsp.nil_ls.setup{}
-      --lsp.ccls.setup{}
+      lsp.ccls.setup{}
 
       local cmp = require'cmp'
 

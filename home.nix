@@ -67,7 +67,9 @@
     qbittorrent 
     nil
     lua-language-server
+#    sqls
     ccls
+    gopls
     wev
     fzf
 #    git

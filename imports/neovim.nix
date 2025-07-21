@@ -65,6 +65,7 @@
       lsp.lua_ls.setup{}
       lsp.nil_ls.setup{}
       lsp.ccls.setup{}
+      lsp.sqls.setup{}
 
       require 'go'.setup({
         goimports = 'gopls', -- if set to 'gopls' will use golsp format

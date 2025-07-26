@@ -7,16 +7,8 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
 #    inputs.musnix.nixosModules.default
-    ./imports/alacritty.nix
-    ./imports/mako.nix
-    ./imports/sway.nix
-    ./imports/waybar.nix
-    ./imports/neovim.nix
-    ./imports/zsh.nix
-    ./imports/audio.nix
-    ../git.nix
+    ./modules/pkgz.nix
   ];
-
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
   
@@ -46,85 +38,6 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
-
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  
-  home.packages = with pkgs; [
-
-    wl-clipboard
-    wayland
-    wofi
-    wget
-    image-roll
-    busybox
-    vlc
-    pavucontrol
-    gnupg
-    nmap
-    jellyfin-media-player
-    miru
-    qbittorrent 
-    nil
-    lua-language-server
-    sqls
-    ccls
-    gopls
-    wev
-    fzf
-#    git
-    cargo
-    brightnessctl
-
-  ];
-
-
-  programs.bash.enable = true;
-
-  services.redshift = {
-    enable = true;
-   
-  # Display temperature settings
-    temperature = {
-      day = 5700;
-      night = 3500;
-    };
-  
-  # Location settings (replace with your coordinates)
-    latitude = "30.69880614";
-    longitude = "-88.02521";
-  
-  # Schedule settings
-    settings = {
-      #dawn-time = "6:00";
-      #dusk-time = "18:35";
-     
-      # General settings
-      brightness = {
-        day = "1";
-        night = "0.8";
-      };
-    };
-  };
-
-
-   # programs.steam = {
- #   enable = true;
- #   remotePlay.openFirewall = true;
-      
- # };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-    
-
-  };
-
-  programs.hstr = {
-    enable = true;
-    enableZshIntegration = true;
-  };
 
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

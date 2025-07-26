@@ -217,6 +217,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+
+  #gamestuff
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # most packages on are in the home.nix file
@@ -229,6 +235,8 @@
     librewolf
     networkmanagerapplet
     killall
+    # VV gaming VV
+    mangohud
     
   ];
 

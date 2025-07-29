@@ -18,11 +18,13 @@
       #local machine specific
       "${inputs.nixos-hardware}/common/cpu/intel/sandy-bridge"
       "${inputs.nixos-hardware}/lenovo/thinkpad/x230"
+
+      #./modules/game.nix
+#      ./modules/firefox.nix
+      ./modules/security.nix
       ../1pass.nix
       
     ];
-
-
 
 
   #
@@ -37,8 +39,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "phc-intel" "thinkpad_acpi" "thinkpad_hwmon" ];
-
-  
   boot.supportedFilesystems = [ "ntfs" ];
 
   boot.initrd.luks.devices."luks-ecf6151f-5e24-4dec-b7e3-0f4008d680b0".device = "/dev/disk/by-uuid/ecf6151f-5e24-4dec-b7e3-0f4008d680b0";
@@ -76,7 +76,7 @@
   };
 
   services.tailscale.enable = true;
-  services.mullvad-vpn.enable = true;
+#  services.mullvad-vpn.enable = true;
 
 
   #
@@ -102,7 +102,15 @@
   };
 
 
-
+  services.greetd = {
+    enable = true;                
+    settings = {
+    default_session = {
+    command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+    user = "greeter";                                                  
+      };                                                                   
+    };                                                                     
+  };
 
 
   #
@@ -149,7 +157,7 @@
 
   nix.gc.automatic = true;
   nix.optimise.automatic = true;
-
+  nix.settings.auto-optimise-store = true;
 
   
   hardware = {
@@ -214,14 +222,7 @@
   };
 
   # Allow unfree packages
-
   nixpkgs.config.allowUnfree = true;
-
-
-  #gamestuff
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
-  programs.gamemode.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -233,10 +234,9 @@
     ranger
     gcc
     librewolf
+    firefox
     networkmanagerapplet
     killall
-    # VV gaming VV
-    mangohud
     
   ];
 

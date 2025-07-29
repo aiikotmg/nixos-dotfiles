@@ -9,17 +9,22 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-colors.url = "github:misterio77/nix-colors";
     musnix.url = "github:musnix/musnix";
+    flake-utils.url = "github:numtide/flake-utils";
     
-    
-    #nix-ls = {
-    #  url = "github:oxalica/nil";
-    #};
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
  
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
      
   };
 
@@ -36,11 +41,13 @@ outputs = { self, nixpkgs, nixos-hardware, nix-colors, home-manager, ... }@input
 
           #extraSpecialArgs = { inherit inputs; };
           modules = [
-          inputs.nix-colors.homeManagerModules.default
-          inputs.musnix.nixosModules.default
-          ./nixos-dotfiles/configuration.nix
-          inputs.home-manager.nixosModules.default
-        #  inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
+   #         nur.modules.nixos.default
+   #         nur.legacyPackages."${system}".repos.iopq.modules.xraya
+            inputs.nix-colors.homeManagerModules.default
+            inputs.musnix.nixosModules.default
+            ./nixos-dotfiles/configuration.nix
+            inputs.home-manager.nixosModules.default
+          #  inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
           ];
         #};
       };

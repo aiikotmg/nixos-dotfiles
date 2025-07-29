@@ -1,16 +1,21 @@
 { pkgs, config, ... }:
 
+#
+# TODO:
+#   CMP-ZSH?
+#   FIX SQLS
+#   CLIPBOARD/BUFFER COMPLETION
+#
+
+
 {
 
   programs.neovim = with config.colorScheme.palette; {
     enable = true;
     plugins = with pkgs.vimPlugins; [
 #      LazyVim
-      #todo: 
-      #cmp-zsh?
-      #buffer/clipboard completion
-      #get sql working
 
+      dirbuf-nvim
       trouble-nvim
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
@@ -27,11 +32,16 @@
       cheatsheet-nvim
       vim-nix
       vim-wayland-clipboard
+
+      # auto complete and snippets
+      friendly-snippets
       cmp_luasnip
+      luasnip
       cmp-nvim-lsp
       vim-ccls
       go-nvim
       vim-vsnip
+      cmp-vsnip
       fidget-nvim
       { plugin = nvim-cmp;
       config = "";
@@ -83,6 +93,11 @@
 
 --      lsp.bashls.setup{}
 --      lsp.sqls.setup{}
+
+
+      -- luasnip
+      require('luasnip.loaders.from_vscode').lazy_load()
+
 
       local cmp = require'cmp'
 

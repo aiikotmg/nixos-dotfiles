@@ -2,11 +2,13 @@
 
 {
 
+
   wayland.windowManager.sway = with config.colorScheme.palette; {
     enable = true;
     wrapperFeatures.gtk = true;
     
     config = rec {
+
       modifier = "Mod1";
       terminal = "alacritty";
       menu = "wofi --show run";
@@ -57,13 +59,27 @@
         }];
 
         startup = [
+          { command = "nm-applet"; }
+          { command = "1password --silent"; }
         
         ];
-#        keycodebindings = {
-
-#        };
     };
+    extraConfig = "
+
+      # 1pass
+      bindsym Mod1+Shift+p exec 1password --quick-access
+      # Brightness
+      bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+      bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+      # Volume
+      bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+      bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+      bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+
+      assign [class='firefox'] workspace 2
+    ";
   };
+
 }
   
 

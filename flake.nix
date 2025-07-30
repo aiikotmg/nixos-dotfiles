@@ -8,8 +8,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-colors.url = "github:misterio77/nix-colors";
-    musnix.url = "github:musnix/musnix";
-    flake-utils.url = "github:numtide/flake-utils";
+#    musnix.url = "github:musnix/musnix";
+#    flake-utils.url = "github:numtide/flake-utils";
     
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,33 +21,35 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+#   fenix = {
+#     url = "github:nix-community/fenix";
+#     inputs.nixpkgs.follows = "nixpkgs";
+#   };
      
   };
 
-outputs = { self, nixpkgs, nixos-hardware, nix-colors, home-manager, ... }@inputs:
+outputs = { self, nixpkgs, nixos-hardware, nix-colors, nur, home-manager, ... }@inputs:
     let
-      system = "86x_64-linux";
+      system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.hermes= nixpkgs.lib.nixosSystem {
+
+#       homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
         specialArgs = {inherit inputs;};
-        #homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
          # inherit pkgs;
 
           #extraSpecialArgs = { inherit inputs; };
           modules = [
-   #         nur.modules.nixos.default
-   #         nur.legacyPackages."${system}".repos.iopq.modules.xraya
+#            nur.modules.nixos.default
+#            nur.legacyPackages."${system}".repos.rycee.firefox-addons
+#            pkgs.nur.repos.rycee.firefox-addons
             inputs.nix-colors.homeManagerModules.default
-            inputs.musnix.nixosModules.default
-            ./nixos-dotfiles/configuration.nix
+#            inputs.musnix.nixosModules.default
+            ./configuration.nix
             inputs.home-manager.nixosModules.default
-          #  inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
+#            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
           ];
         #};
       };

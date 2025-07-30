@@ -4,8 +4,8 @@
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     #env.TERM = "alacritty";
-    live_config_reload = true;
-    shell = "zsh";
+    general.live_config_reload = true;
+    terminal.shell = "zsh";
     window = {
       decorations = "full";
       opacity = 0.8;
@@ -13,7 +13,7 @@
       dynamic_title = true;
       class = {
         instance = "Alacritty";
-        general = "Alacritty";
+#        general = "Alacritty";
       };
     };
     font = {

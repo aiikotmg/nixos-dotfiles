@@ -1,5 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
+
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, inputs, ... }:
@@ -13,6 +14,7 @@
     
 
       inputs.home-manager.nixosModules.default
+     # <home-manager/nixos>
       ./hardware-configuration.nix
 
       #local machine specific
@@ -21,8 +23,8 @@
 
       #./modules/game.nix
 #      ./modules/firefox.nix
-      ./modules/security.nix
-      ../1pass.nix
+#      ./modules/security.nix
+#      ./modules/1pass.nix
       
     ];
 
@@ -167,7 +169,7 @@
 #    sensor.iio.enable = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
-    opengl = {
+    graphics = {
       enable = true;
       extraPackages = with pkgs; [
    
@@ -182,13 +184,13 @@
   #services.xserver.displayManager.sddm.enable = true; 
   #portal.enable = true;
   #portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; 
-  services.xserver.libinput.enable = true; # Allows use of laptop touchpad.
+  services.libinput.enable = true; # Allows use of laptop touchpad.
 
 
 
   # Enable sound with pipewire
 
-  sound.enable = true;
+#  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -244,7 +246,7 @@
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts._0xproto
     font-awesome
     udev-gothic
     jetbrains-mono

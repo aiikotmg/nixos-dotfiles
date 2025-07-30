@@ -6,10 +6,10 @@
 {
 
   imports = [
-    ./pentest/wireless.nix
+#    ./pentest/wireless.nix
 #    ./pentest/traffic.nix
-    ./pentest/packet-generators.nix
-    
+#    ./pentest/packet-generators.nix
+   
   ];
 
 

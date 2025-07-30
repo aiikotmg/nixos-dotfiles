@@ -1,9 +1,9 @@
-{ config, lib, pkgs, flake-inputs, ... }:    
+{ config, lib, pkgs, flake-outputs, ... }:    
 
 {
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox.override {cfg.enableTridactylNative = true;};
+      #package = pkgs.firefox.override {cfg.enableTridactylNative = true;};
       profiles."default" = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           onepassword-password--manager

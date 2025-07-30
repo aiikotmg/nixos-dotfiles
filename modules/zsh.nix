@@ -29,11 +29,11 @@
     #some quick shortcuts
     # 
     # TODO: CLEAN UP 
-    rebuild="sudo nixos-rebuild switch --flake ~/#default && cp ~/flake.nix ~/nixos-dotfiles/flake.nix ";
+    rebuild="sudo nixos-rebuild switch --flake /etc/nixos/#hermes";
 
-    rebuildup="sudo nixos-rebuild switch --upgrade --flake ~/#default && cp ~/flake.nix ~/nixos-dotfiles/flake.nix && nix-collect-garbage -d";
+    rebuildup="sudo nixos-rebuild switch --upgrade --flake /etc/nixos/#hermes && nix-collect-garbage -d";
 
-    test="sudo nixos-rebuild test --flake ~/#default";
+    test="sudo nixos-rebuild test";
 
     showip="curl -4 ipaddress.ai";
     steme="gamescope -- /bin/sh -c 'mangoapp& steam'";

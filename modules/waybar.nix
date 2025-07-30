@@ -13,7 +13,7 @@
         ];
         modules-left = [ "sway/workspaces" ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "pulseaudio" "battery" "clock" "tray" ];
+        modules-right = [ "tray" "pulseaudio" "battery" "clock" ];
 
         clock.format = "{:%I:%M}";
 

@@ -10,7 +10,8 @@
     ./neovim.nix
     ./zsh.nix
 #    ./audio.nix
-    ../../git.nix
+#    ./git.nix
+
   ];
 
 
@@ -25,6 +26,9 @@
     wev
 
     #general sys
+#    base16-builder
+    git
+    feh
     ffmpeg
     wget
     image-roll

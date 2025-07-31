@@ -36,12 +36,19 @@ outputs = { self, nixpkgs, nixos-hardware, nix-colors, nur, home-manager, ... }@
     {
       nixosConfigurations.hermes= nixpkgs.lib.nixosSystem {
 
-#       homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
+       homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
         specialArgs = {inherit inputs;};
          # inherit pkgs;
 
           #extraSpecialArgs = { inherit inputs; };
           modules = [
+            inputs.home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.hermes = {
+              imports = [ config.home.homeDirectoy/home.nix ];
+            };
+          }
 #            nur.modules.nixos.default
 #            nur.legacyPackages."${system}".repos.rycee.firefox-addons
 #            pkgs.nur.repos.rycee.firefox-addons
@@ -49,9 +56,9 @@ outputs = { self, nixpkgs, nixos-hardware, nix-colors, nur, home-manager, ... }@
 #            inputs.musnix.nixosModules.default
             ./configuration.nix
             inputs.home-manager.nixosModules.default
-#            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
           ];
         #};
       };
     };
+  };
 }

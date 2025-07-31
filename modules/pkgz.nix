@@ -10,10 +10,9 @@
     ./neovim.nix
     ./zsh.nix
 #    ./audio.nix
-#    ./git.nix
+    ./git.nix
 
   ];
-
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -27,7 +26,7 @@
 
     #general sys
 #    base16-builder
-    git
+#    git
     feh
     ffmpeg
     wget

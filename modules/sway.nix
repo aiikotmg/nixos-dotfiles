@@ -36,7 +36,7 @@
         };
         output = {
           LVDS-1 = {
-#            bg = "feh /home/hermes/Downloads/madara.jpeg fill";
+            bg = "config.home.homeDirectory/wall/madara.jpeg fill";
           };
         };
         gaps = {

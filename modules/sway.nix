@@ -36,7 +36,7 @@
         };
         output = {
           LVDS-1 = {
-            bg = "config.home.homeDirectory/wall/madara.jpeg fill";
+#            bg = "config.home.homeDirectory/wall/madara.jpeg fill";
           };
         };
         gaps = {
@@ -65,7 +65,7 @@
         ];
     };
     extraConfig = "
-
+      
       # 1pass
       bindsym Mod1+Shift+p exec 1password --quick-access
       # Brightness

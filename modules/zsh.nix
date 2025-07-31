@@ -31,7 +31,7 @@
     # TODO: CLEAN UP 
     rebuild="sudo nixos-rebuild switch --flake /etc/nixos/#hermes";
 
-    rebuildup="sudo nixos-rebuild switch --upgrade --flake /etc/nixos/#hermes && nix-collect-garbage -d";
+    rebuildup="sudo nixos-rebuild switch --upgrade --flake /etc/nixos/#hermes && nix-collect-garbage --delete-older-than 12d";
 
     test="sudo nixos-rebuild test";
 

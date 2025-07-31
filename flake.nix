@@ -34,24 +34,15 @@ outputs = { self, nixpkgs, nixos-hardware, nix-colors, nur, home-manager, ... }@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations.hermes= nixpkgs.lib.nixosSystem {
-
-       homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
+      nixosConfigurations.hermes = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
+        #homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
          # inherit pkgs;
 
           #extraSpecialArgs = { inherit inputs; };
           modules = [
-            inputs.home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.hermes = {
-              imports = [ config.home.homeDirectoy/home.nix ];
-            };
-          }
-#            nur.modules.nixos.default
-#            nur.legacyPackages."${system}".repos.rycee.firefox-addons
-#            pkgs.nur.repos.rycee.firefox-addons
+   #         nur.modules.nixos.default
+   #         nur.legacyPackages."${system}".repos.iopq.modules.xraya
             inputs.nix-colors.homeManagerModules.default
 #            inputs.musnix.nixosModules.default
             ./configuration.nix
@@ -60,5 +51,5 @@ outputs = { self, nixpkgs, nixos-hardware, nix-colors, nur, home-manager, ... }@
         #};
       };
     };
-  };
 }
+

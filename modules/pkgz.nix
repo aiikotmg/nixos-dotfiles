@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, inputs, config, ... }:
 
 {
 
@@ -11,8 +11,12 @@
     ./zsh.nix
 #    ./audio.nix
     ./git.nix
+    ./firefox.nix
 
   ];
+
+
+  #TODO: minecraft, assetto, osu!, tarkov, tidal, discord
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -56,20 +60,6 @@
 
   ];
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.hstr = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.bash.enable = true;
-
-
-
   services.redshift = {
     enable = true;
 
@@ -95,5 +85,16 @@
       };
     };
   };
+
+  options = {
+    pkgz.enable =
+      lib.mkEnableOption "enables pkgz";
+  };
+
+  config = lib.mkIf config.pkgz.enable {
+    option1 = 5;
+    option2 = true;
+  };
+
 
 }

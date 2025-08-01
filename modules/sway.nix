@@ -36,7 +36,7 @@
         };
         output = {
           LVDS-1 = {
-#            bg = "config.home.homeDirectory/wall/madara.jpeg fill";
+#            bg = "../wall/madara.jpeg fill";
           };
         };
         gaps = {

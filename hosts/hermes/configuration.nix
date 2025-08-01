@@ -16,7 +16,7 @@
       inputs.home-manager.nixosModules.default
      # <home-manager/nixos>
       ./hardware-configuration.nix
-      ./modules/firefox.nix
+#      ./modules/firefox.nix
 
 
       #local machine specific
@@ -220,7 +220,11 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "hermes" = import ./home.nix;
+      modules = [
+      ./home.nix
+      inputs.self.outputs.homeManagerModules.default
+ 
+      ];
     };
   };
 

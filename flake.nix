@@ -16,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
  
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
 #   fenix = {
 #     url = "github:nix-community/fenix";
 #     inputs.nixpkgs.follows = "nixpkgs";
@@ -28,28 +23,24 @@
      
   };
 
-outputs = { self, nixpkgs, nixos-hardware, nix-colors, nur, home-manager, ... }@inputs:
+outputs = { self, nixpkgs, nixos-hardware, nix-colors, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
+        #homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
       nixosConfigurations.hermes = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        #homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
-         # inherit pkgs;
-
-          #extraSpecialArgs = { inherit inputs; };
           modules = [
-   #         nur.modules.nixos.default
-   #         nur.legacyPackages."${system}".repos.iopq.modules.xraya
             inputs.nix-colors.homeManagerModules.default
 #            inputs.musnix.nixosModules.default
-            ./configuration.nix
+#            ./modules/pkgz.nix
+            ./hosts/hermes/configuration.nix
             inputs.home-manager.nixosModules.default
           ];
-        #};
       };
+      homeManagerModules.default = ./modules;
     };
 }
 

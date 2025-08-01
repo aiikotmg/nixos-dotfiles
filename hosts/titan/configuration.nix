@@ -16,7 +16,7 @@
       inputs.home-manager.nixosModules.default
      # <home-manager/nixos>
       ./hardware-configuration.nix
-      ./modules/firefox.nix
+#      ./modules/firefox.nix
 
 
       #local machine specific

@@ -6,7 +6,7 @@
     enable = true;
     enableCompletion = true;
     autocd = true;
-    dotDir = ".config/zsh";
+#    dotDir = ".config/zsh";
     oh-my-zsh = {
       enable = true;
       theme = "eastwood";
@@ -46,5 +46,18 @@
 #  ";
     
   };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.hstr = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.bash.enable = true;
+
 
 }

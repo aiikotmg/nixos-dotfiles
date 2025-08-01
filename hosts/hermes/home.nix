@@ -7,11 +7,11 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
 #    inputs.musnix.nixosModules.default
-#    ./modules/pkgz.nix
+    ./../../modules/pkgz.nix
 #    inputs.homeManagerModules.default
   ];
 
-  pkgz.enable = true;
+#  home.pkgz.enable = true;
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
   
   #musnix.enable = true;

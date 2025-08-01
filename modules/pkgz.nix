@@ -11,7 +11,7 @@
     ./zsh.nix
 #    ./audio.nix
     ./git.nix
-    ./firefox.nix
+#   ./firefox.nix
 
   ];
 
@@ -60,6 +60,8 @@
 
   ];
 
+  programs.firefox.enable = true;
+
   services.redshift = {
     enable = true;
 
@@ -86,15 +88,15 @@
     };
   };
 
-  options = {
-    pkgz.enable =
-      lib.mkEnableOption "enables pkgz";
-  };
+#  options = {
+#    pkgz.enable =
+#      lib.mkEnableOption "enables pkgz";
+#  };
 
-  config = lib.mkIf config.pkgz.enable {
-    option1 = 5;
-    option2 = true;
-  };
+#  config = lib.mkIf config.pkgz.enable {
+#    option1 = 5;
+#    option2 = true;
+#  };
 
 
 }

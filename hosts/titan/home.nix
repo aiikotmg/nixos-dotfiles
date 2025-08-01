@@ -7,7 +7,7 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
 #    inputs.musnix.nixosModules.default
-    ./modules/pkgz.nix
+#    ./modules/pkgz.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
@@ -16,8 +16,8 @@
   
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "hermes";
-  home.homeDirectory = "/home/hermes";
+  home.username = "titan";
+  home.homeDirectory = "/home/titan";
   nixpkgs.config.allowUnfree = true;
   #nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # This value determines the Home Manager release that your configuration is

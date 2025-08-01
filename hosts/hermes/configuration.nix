@@ -16,6 +16,7 @@
       inputs.home-manager.nixosModules.default
      # <home-manager/nixos>
       ./hardware-configuration.nix
+      ./../../modules/1pass.nix
 #      ./modules/firefox.nix
 
 
@@ -220,13 +221,20 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      modules = [
-      ./home.nix
-      inputs.self.outputs.homeManagerModules.default
- 
-      ];
+      "hermes" = import ./home.nix;
     };
   };
+
+#  home-manager = {
+#    extraSpecialArgs = { inherit inputs; };
+#    users = {
+#      modules = [
+#      ./home.nix
+ #     inputs.self.outputs.homeManagerModules.default
+ 
+ #     ];
+ #   };
+  #};
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

@@ -29,18 +29,31 @@ outputs = { self, nixpkgs, nixos-hardware, nix-colors, home-manager, ... }@input
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-        #homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
-      nixosConfigurations.hermes = nixpkgs.lib.nixosSystem {
+
+      nixosConfigurations.titan= nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
           modules = [
             inputs.nix-colors.homeManagerModules.default
 #            inputs.musnix.nixosModules.default
 #            ./modules/pkgz.nix
+            ./hosts/titan/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+      };
+ 
+        #homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
+      nixosConfigurations.hermes= nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+          modules = [
+            inputs.nix-colors.homeManagerModules.default
+#            inputs.musnix.nixosModules.default
+#            ./modules/pkgz.nix
+#            ./modules/1pass.nix
             ./hosts/hermes/configuration.nix
             inputs.home-manager.nixosModules.default
           ];
       };
-      homeManagerModules.default = ./modules;
+#      homeManagerModules.default = ./modules;
     };
 }
 

@@ -4,7 +4,7 @@
 
   programs.lutris = {
     enable = true;
-    extraPackages with pkgs; [
+    extraPackages = with pkgs; [
       mangohud
       winetricks
       gamescope

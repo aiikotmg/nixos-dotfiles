@@ -137,6 +137,9 @@
      #minecraft
      prismlauncher
 
+     #media
+     tidal-hifi
+
     ];
   };
 

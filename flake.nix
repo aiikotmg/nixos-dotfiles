@@ -31,11 +31,14 @@ outputs = { self, nixpkgs, nixos-hardware, nix-colors, home-manager, ... }@input
     {
 
       nixosConfigurations.titan= nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          userName = "titan";
+        };
+
           modules = [
             inputs.nix-colors.homeManagerModules.default
 #            inputs.musnix.nixosModules.default
-#            ./modules/pkgz.nix
             ./hosts/titan/configuration.nix
             inputs.home-manager.nixosModules.default
           ];
@@ -43,7 +46,10 @@ outputs = { self, nixpkgs, nixos-hardware, nix-colors, home-manager, ... }@input
  
         #homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
       nixosConfigurations.hermes= nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          userName= "hermes";
+        };
           modules = [
             inputs.nix-colors.homeManagerModules.default
 #            inputs.musnix.nixosModules.default

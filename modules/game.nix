@@ -3,7 +3,7 @@
 {
 
   #gamestuff
-  # some games require PROTON_USE_WINED3D=1 MESA_LOADER_DRIVER_OVERRIDE=crocus %command%
+  # some games on #hermes require PROTON_USE_WINED3D=1 MESA_LOADER_DRIVER_OVERRIDE=crocus %command%
   #
   # TODO: get this working right VV
   # gamescope -e -- bash -c " gamemoderun  %command% &; mangoapp"

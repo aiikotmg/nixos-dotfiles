@@ -7,7 +7,9 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
 #    inputs.musnix.nixosModules.default
-#    ./modules/pkgz.nix
+#    ./../../modules/pkgz.nix
+    ./../../modules/zsh.nix
+    ./../../modules/lutris.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;

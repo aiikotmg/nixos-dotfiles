@@ -3,6 +3,7 @@
 {
   imports = [ 
     ./../../hm-mod/default.nix 
+    ./../../bundles/dev.nix
   ];
   config = {
     modules = {
@@ -10,8 +11,6 @@
       lutris.enable = true;
 
         # cli
-      nvim.enable = true;
-      git.enable = true;
 
         # system
 

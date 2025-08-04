@@ -19,6 +19,10 @@
   home.packages = with pkgs; [
     feh
     busybox
+    ffmpeg
+    wget
+    vlc
+
      
   ];
 }

@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
      imports = [
         ../hm-mod/default.nix
       ];
 
-      config = {
         modules = {
           alacritty.enable = true;
           git.enable = true;
@@ -27,6 +26,6 @@
 
         ];
     
-      };
-    
-  }
+      }
+     
+  

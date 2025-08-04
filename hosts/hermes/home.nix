@@ -8,7 +8,8 @@
   config = {
     modules = {
         # gui
-
+        firefox.enable = true;
+        
         # cli
 
         # system

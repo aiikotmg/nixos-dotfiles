@@ -4,6 +4,7 @@
 
   imports = [
     ./alacritty
+    ./firefox
     ./git
     ./lutris
     ./mako

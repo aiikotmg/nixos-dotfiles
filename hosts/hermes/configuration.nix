@@ -11,22 +11,14 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-    
 
       inputs.home-manager.nixosModules.default
-     # <home-manager/nixos>
       ./hardware-configuration.nix
       ./../../nix-mod/1pass.nix
-#      ./modules/firefox.nix
-
 
       #local machine specific
       "${inputs.nixos-hardware}/common/cpu/intel/sandy-bridge"
       "${inputs.nixos-hardware}/lenovo/thinkpad/x230"
-
-      #./modules/game.nix
-#      ./modules/security.nix
-#      ./modules/1pass.nix
       
     ];
 

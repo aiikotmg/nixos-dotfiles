@@ -5,6 +5,7 @@
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+        nix-colors.url = "github:misterio77/nix-colors";
 
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -18,7 +19,7 @@
     };
 
     # All outputs for the system (configs)
-    outputs = { nixos-hardware, home-manager, nixpkgs, nur, ... }@inputs: 
+    outputs = { nix-colors, nixos-hardware, home-manager, nixpkgs, nur, ... }@inputs: 
         let
             system = "x86_64-linux"; #current system
             pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;

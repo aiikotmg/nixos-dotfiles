@@ -6,7 +6,7 @@ let cfg = config.modules.sway;
 in {
     options.modules.sway = { enable = mkEnableOption "sway"; };
     config = mkIf cfg.enable {
-    wayland.windowManager.sway = { #with config.colorScheme.palette; {
+    wayland.windowManager.sway = with config.colorScheme.palette; {
       enable = true;
       wrapperFeatures.gtk = true;
     
@@ -16,23 +16,23 @@ in {
         terminal = "alacritty";
         menu = "wofi --show run";
 
-#        colors = {
-#          background = "#${base00}";
-#          focused = {
-#            background = "#${base00}";
-#            border = "#${base03}";
-#            childBorder = "#${base03}";
-#            text = "#${base06}";
-#            indicator = "#${base03}";
-#          };
-#          unfocused = {
-#            background = "#${base00}";
-#            border = "#${base03}";
-#            childBorder = "#${base03}";
-#            text = "#${base06}";
-#            indicator = "#${base03}";
-#          };
-#        };
+        colors = {
+          background = "#${base00}";
+          focused = {
+            background = "#${base00}";
+            border = "#${base03}";
+            childBorder = "#${base03}";
+            text = "#${base06}";
+            indicator = "#${base03}";
+          };
+          unfocused = {
+            background = "#${base00}";
+            border = "#${base03}";
+            childBorder = "#${base03}";
+            text = "#${base06}";
+            indicator = "#${base03}";
+          };
+        };
           window = {
             border = 5;
             titlebar = false;
@@ -51,11 +51,11 @@ in {
   
           bars = [{
             command = "waybar";
-#            colors.activeWorkspace = {
-#              background = "#${base00}";
-#              border = "#${base03}";
-#              text = "#${base06}";
-#            };
+            colors.activeWorkspace = {
+              background = "#${base00}";
+              border = "#${base03}";
+              text = "#${base06}";
+            };
             fonts.size = 15.0;
             position = "top";
 

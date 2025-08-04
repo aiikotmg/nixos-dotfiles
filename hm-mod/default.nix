@@ -4,6 +4,7 @@
 
   imports = [
     ./alacritty
+    ./foot
     ./firefox
     ./git
     ./lutris
@@ -11,6 +12,7 @@
     ./nvim
     ./sway
     ./waybar
+    ./wpaperd
     ./zsh
   ];
 

@@ -8,6 +8,7 @@
       config = {
         modules = {
           alacritty.enable = true;
+	  foot.enable = true;
           git.enable = true;
           mako.enable = true;
           nvim.enable = true;

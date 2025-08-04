@@ -14,6 +14,7 @@ in {
 
             # Install extensions from NUR
             extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+                onepassword-password-manager
                 decentraleyes
                 ublock-origin
                 clearurls

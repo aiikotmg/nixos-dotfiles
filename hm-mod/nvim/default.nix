@@ -7,7 +7,7 @@ let cfg = config.modules.nvim;
 in {
     options.modules.nvim = { enable = mkEnableOption "nvim"; };
     config = mkIf cfg.enable {
-      programs.neovim = {# with config.colorScheme.palette; {
+      programs.neovim =  with config.colorScheme.palette; {
         enable = true;
         plugins = with pkgs.vimPlugins; [
 #        LazyVim

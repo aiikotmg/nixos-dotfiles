@@ -16,6 +16,7 @@ in {
             extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
                 onepassword-password-manager
                 decentraleyes
+                onepassword-password-manager
                 ublock-origin
                 clearurls
                 sponsorblock

@@ -7,8 +7,10 @@
   ];
   config = {
     modules = {
+
       # gui
       lutris.enable = true;
+      firefox.enable = true;
 
         # cli
 

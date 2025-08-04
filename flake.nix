@@ -1,65 +1,69 @@
-# flake.nix
-
-
 {
-  description = "NixOS config flake";
+    description = "NixOS configuration";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nix-colors.url = "github:misterio77/nix-colors";
-#    musnix.url = "github:musnix/musnix";
-#    flake-utils.url = "github:numtide/flake-utils";
-    
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    # All inputs for the system
+    inputs = {
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+        home-manager = {
+            url = "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        nur = {
+            url = "github:nix-community/NUR";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
- 
-#   fenix = {
-#     url = "github:nix-community/fenix";
-#     inputs.nixpkgs.follows = "nixpkgs";
-#   };
-     
-  };
 
-outputs = { self, nixpkgs, nixos-hardware, nix-colors, home-manager, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
+    # All outputs for the system (configs)
+    outputs = { nixos-hardware, home-manager, nixpkgs, nur, ... }@inputs: 
+        let
+            system = "x86_64-linux"; #current system
+            pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+            lib = nixpkgs.lib;
 
-      nixosConfigurations.titan= nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          userName = "titan";
-        };
+            # This lets us reuse the code to "create" a system
+            # Credits go to sioodmy on this one!
+            # https://github.com/sioodmy/dotfiles/blob/main/flake.nix
+            mkSystem = pkgs: system: hostname:
+                pkgs.lib.nixosSystem {
+                    system = system;
+                    modules = [
+#                        { networking.hostName = hostname; }
+                        # General configuration (users, networking, sound, etc)
+                        (./. + "/hosts/${hostname}/configuration.nix")
+                        # Hardware config (bootloader, kernel modules, filesystems, etc)
+                        # DO NOT USE MY HARDWARE CONFIG!! USE YOUR OWN!!
+                        (./. + "/hosts/${hostname}/hardware-configuration.nix")
+                        home-manager.nixosModules.home-manager
+                        {
+                            home-manager = {
+                                useUserPackages = true;
+                                useGlobalPkgs = true;
+                                extraSpecialArgs = { inherit inputs; };
+                                # Home manager config (configures programs like firefox, zsh, eww, etc)
+#                                users.notus = (./. + "/hosts/${hostname}/user.nix");
+#                                users.hermes = (./. + "/hosts/${hostname}/home.nix");
+#                                users.titan = (./. + "/hosts/${hostname}/home.nix");
+                            };
+                            nixpkgs.overlays = [
+                                # Add nur overlay for Firefox addons
+                                nur.overlays.default
+#                                (import ./overlays)
+                            ];
+                        }
+                    ];
+                    specialArgs = { inherit inputs; };
+                };
 
-          modules = [
-            inputs.nix-colors.homeManagerModules.default
-#            inputs.musnix.nixosModules.default
-            ./hosts/titan/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-      };
- 
-        #homeConfigurations."hermes" = home-manager.lib.homeManagerConfiguration {
-      nixosConfigurations.hermes= nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          userName= "hermes";
-        };
-          modules = [
-            inputs.nix-colors.homeManagerModules.default
-#            inputs.musnix.nixosModules.default
-#            ./modules/pkgz.nix
-#            ./modules/1pass.nix
-            ./hosts/hermes/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-      };
-#      homeManagerModules.default = ./modules;
+        in {
+            nixosConfigurations = {
+                # Now, defining a new system is can be done in one line
+                #                                Architecture   Hostname
+                titan = mkSystem inputs.nixpkgs "x86_64-linux" "titan";
+                hermes = mkSystem inputs.nixpkgs "x86_64-linux" "hermes";
+            };
     };
 }
-

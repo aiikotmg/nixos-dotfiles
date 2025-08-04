@@ -16,7 +16,7 @@
       inputs.home-manager.nixosModules.default
      # <home-manager/nixos>
       ./hardware-configuration.nix
-      ./../../modules/1pass.nix
+      ./../../nix-mod/1pass.nix
 #      ./modules/firefox.nix
 
 

@@ -7,6 +7,7 @@
 
         modules = {
           alacritty.enable = true;
+	  foot.enable = true;
           git.enable = true;
           nvim.enable = true;
           zsh.enable = true;

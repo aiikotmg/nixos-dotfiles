@@ -11,7 +11,30 @@
 #      ./hardware-configuration.nix
       ./../../nix-mod/1pass.nix
       ./../../nix-mod/game.nix
+      ./../../nix-mod/nix-security-box/default.nix
     ];
+
+  config = {
+    modules = {
+
+        # gui
+
+
+        # cli
+
+        # system
+
+        #nix-security-box
+        #https://github.com/fabaff/nix-security-box/
+
+        #this would enable the entire pentesting toolkit at once, idk why i included it
+        #nix-security-tool-box.enable = true;
+        #exploits.enable = true;
+
+
+
+    };
+
 
    # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -230,5 +253,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
+  };
 }

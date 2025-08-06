@@ -12,6 +12,7 @@
       ./../../nix-mod/1pass.nix
       ./../../nix-mod/game.nix
       ./../../nix-mod/nix-security-box/default.nix
+      ./../../nix-mod/default.nix
     ];
 
   config = {
@@ -23,6 +24,7 @@
         # cli
 
         # system
+        fonts.enable = true;
 
         #nix-security-box
         #https://github.com/fabaff/nix-security-box/
@@ -74,16 +76,6 @@
  #     ];
  #   };
   #};
-
-  # Fonts
-
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    nerd-fonts._0xproto
-    font-awesome
-    udev-gothic
-    jetbrains-mono
-  ];
 
   # Set your time zone.
   time.timeZone = "America/Chicago";

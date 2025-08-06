@@ -15,6 +15,8 @@
       inputs.home-manager.nixosModules.default
       ./hardware-configuration.nix
       ./../../nix-mod/1pass.nix
+      ./../../nix-mod/default.nix
+      ./../../nix-mod/nix-security-box/default.nix
 
       #local machine specific
       "${inputs.nixos-hardware}/common/cpu/intel/sandy-bridge"
@@ -22,6 +24,15 @@
       
     ];
 
+    config = {
+      #gui
+
+      #cli
+
+      #system
+      fonts.enable = true;
+
+    };
 
   #
   # BOOT
@@ -246,17 +257,6 @@
     killall
     
   ];
-
-  # Fonts 
-
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    nerd-fonts._0xproto
-    font-awesome
-    udev-gothic
-    jetbrains-mono
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

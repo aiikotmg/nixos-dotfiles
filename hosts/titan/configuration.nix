@@ -16,9 +16,11 @@
     ];
 
   config = {
+
     modules = {
 
         # gui
+        discord.enable = true;
 
 
         # cli
@@ -31,8 +33,18 @@
 
         #this would enable the entire pentesting toolkit at once, idk why i included it
         #nix-security-tool-box.enable = true;
-        #exploits.enable = true;
-
+        exploits.enable = true;
+        host.enable = true;
+        infogather.enable = true;
+#        network.enable = true;
+        packet-gen.enable = true;
+        port-scan.enable = true;
+        proxies.enable = true;
+        pswd.enable = true;
+        services.enable = true;
+        traffic.enable = true;
+        web.enable = true;
+        voip.enable = true;
 
 
     };

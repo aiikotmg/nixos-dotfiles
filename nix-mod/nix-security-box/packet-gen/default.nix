@@ -15,7 +15,7 @@ in {
         hping
         ostinato
         pktgen
-        python3Packages.scapy
+#        python3Packages.scapy
       ];
     };
   }

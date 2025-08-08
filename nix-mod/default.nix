@@ -4,6 +4,7 @@
 
   imports = [
     ./fonts
+    ./discord
   ];
 
 #  environment.systemPackages = with pkgs; [

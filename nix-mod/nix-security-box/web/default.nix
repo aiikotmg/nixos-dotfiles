@@ -37,7 +37,7 @@ in {
         graphqlmap
         graphw00f
         hakrawler
-        python3Packages.hakuin
+#        python3Packages.hakuin
         hey
         http-server
         httpx

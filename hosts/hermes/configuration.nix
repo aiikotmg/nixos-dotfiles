@@ -25,12 +25,30 @@
     ];
 
     config = {
+      modules = {
       #gui
 
       #cli
 
       #system
       fonts.enable = true;
+
+      #nix-security-box
+      #https://github.com/fabaff/nix-security-box/
+
+      #this would enable the entire pentesting toolkit at once, idk why i included it
+      #nix-security-tool-box.enable = true;        
+      exploits.enable = true;
+      host.enable = true;
+      infogather.enable = true;
+#       network.enable = true;
+      packet-gen.enable = true;
+      port-scan.enable = true;
+      proxies.enable = true;
+      pswd.enable = true;
+      services.enable = true;
+      traffic.enable = true;
+      web.enable = true;
 
     };
 
@@ -281,4 +299,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
+  };
 }

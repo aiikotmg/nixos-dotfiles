@@ -20,7 +20,7 @@ in {
                 ublock-origin
                 clearurls
                 sponsorblock
-                darkreader
+#                darkreader
                 h264ify
                 df-youtube
             ];

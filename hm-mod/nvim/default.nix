@@ -3,6 +3,9 @@
 
 with lib;
 let cfg = config.modules.nvim;
+#
+# TODO: clean this....
+#
 
 in {
     options.modules.nvim = { enable = mkEnableOption "nvim"; };
@@ -18,13 +21,14 @@ in {
         nvim-treesitter.withAllGrammars
         plenary-nvim
         gruvbox-material
-        mini-nvim
+#        mini-nvim
         colorbuddy-nvim
         auto-pairs
         conflict-marker-vim
         transparent-nvim
         popup-nvim
         staline-nvim
+        yanky-nvim
         telescope-nvim
         cheatsheet-nvim
         vim-nix
@@ -32,13 +36,14 @@ in {
 
       # auto complete and snippets
         friendly-snippets
-        cmp_luasnip
         luasnip
+        cmp_luasnip
         cmp-nvim-lsp
+        cmp-vsnip
+#        cmp_yanky
         vim-ccls
         go-nvim
         vim-vsnip
-        cmp-vsnip
         fidget-nvim
         { plugin = nvim-cmp;
         config = "";

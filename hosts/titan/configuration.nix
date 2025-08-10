@@ -21,6 +21,7 @@
 
         # gui
         discord.enable = true;
+        media.enable = true;
 
 
         # cli
@@ -70,6 +71,7 @@
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
 
+  services.mullvad-vpn.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -167,6 +169,9 @@
 
      #media
      tidal-hifi
+     miru
+     jellyfin-media-player
+     qbittorrent
 
     ];
   };

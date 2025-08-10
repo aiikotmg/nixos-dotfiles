@@ -15,8 +15,8 @@
  
         home.packages = with pkgs; [
           #tools
-          nmap
 
+          
           nil
           lua-language-server
           sqls
@@ -24,6 +24,8 @@
           go
           gopls
           cargo
+          ruff
+          flutter
 
         ];
     

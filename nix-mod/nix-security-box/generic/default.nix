@@ -11,24 +11,19 @@ in {
       environment.systemPackages = with pkgs; [
         chrony
         clamav
-        curl
         cyberchef
         dorkscout
         easyeasm
         exiflooter
         flashrom
         girsh
-        gtfocli
         httpie
         hurl
         inetutils
         inxi
         ioccheck
-        iproute
-        iproute2
         iw
         lynx
-        macchanger
         nano
         parted
         pwgen

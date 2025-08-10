@@ -13,6 +13,7 @@
     ./bluetooth
     ./cloud
     ./code
+    ./common
     ./container
     ./dns
     ./exploits

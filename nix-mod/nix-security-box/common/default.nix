@@ -11,7 +11,6 @@ in {
       environment.systemPackages = with pkgs; [
         curl
         gtfocli
-        iproute
         iproute2
         macchanger
 

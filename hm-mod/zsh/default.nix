@@ -31,19 +31,13 @@ in {
         "+"="brightnessctl s +10%";
         "-"="brightnessctl s 10%-";
 
-
-
         #some quick shortcuts
-
-
-
         hrbld="sudo nixos-rebuild switch --flake /etc/nixos/#hermes";
-
         hrbldup="sudo nixos-rebuild switch --upgrade --flake /etc/nixos/#hermes && nix-collect-garbage --delete-older-than 12d";
-    
 
         trbld="sudo nixos-rebuild switch --flake /etc/nixos/#titan";
         trbldup="sudo nixos-rebuild switch --upgrade --flake /etc/nixos/#titan";
+
         test="sudo nixos-rebuild test";
 
         showip="curl -4 ipaddress.ai";

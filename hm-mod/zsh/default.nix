@@ -38,8 +38,11 @@ in {
         trbld="sudo nixos-rebuild switch --flake /etc/nixos/#titan";
         trbldup="sudo nixos-rebuild switch --upgrade --flake /etc/nixos/#titan";
 
+<<<<<<< HEAD
         mullup="mullvad auto-connect set on && mullvad lockdown-mode set on";
         mulldown="mullvad auto-connect set off && mullvad lockdown-mode set off";
+=======
+>>>>>>> cc0aaac0369f13d2fcbfa79df991f14f5d780e39
         test="sudo nixos-rebuild test";
 
         showip="curl -4 ipaddress.ai";

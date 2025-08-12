@@ -34,6 +34,7 @@
     ./pswd
     ./port-scan
     ./proxies
+    ./reveng
     ./services
     ./smartcards
     ./terminals

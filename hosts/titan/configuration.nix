@@ -38,6 +38,7 @@
         exploits.enable = true;
         pswd.enable = true;
         web.enable = true;
+        reveng.enable = true;
 
 
     };

@@ -9,7 +9,8 @@
   ];
 
 #  environment.systemPackages = with pkgs; [
-#
-#     
+
+#    devenv
+     
 #  ];
 }

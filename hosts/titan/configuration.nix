@@ -64,6 +64,7 @@
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
 
+  services.tailscale.enable = true;
   services.mullvad-vpn.enable = true;
 
   home-manager = {

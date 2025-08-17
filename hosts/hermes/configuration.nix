@@ -25,6 +25,8 @@
     ];
 
     config = {
+
+      
       modules = {
       #gui
 
@@ -259,6 +261,7 @@
 
   environment.systemPackages = with pkgs; [
  
+    kdePackages.krdc
     vim
     ranger
     gcc

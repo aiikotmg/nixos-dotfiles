@@ -15,6 +15,7 @@
       inputs.home-manager.nixosModules.default
       ./hardware-configuration.nix
       ./../../nix-mod/1pass.nix
+      ./../../nix-mod/game.nix
       ./../../nix-mod/default.nix
       ./../../nix-mod/nix-security-box/default.nix
 

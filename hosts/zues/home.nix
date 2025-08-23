@@ -5,6 +5,9 @@
     ./../../hm-mod/default.nix 
     ./../../bundles/dev.nix
     inputs.nix-colors.homeManagerModules.default
+    
+    "${inputs.nixos-hardware}/lenovo/thinkpad/x1-extreme/gen2"
+    "${inputs.nixos-hardware}/common/cpu/intel/coffee-lake"
   ];
   config = {
     colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;

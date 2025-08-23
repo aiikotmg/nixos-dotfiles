@@ -159,7 +159,7 @@
       git
       vim
       ranger
-      nvtop
+      nvtopPackages.nvidia
 
       #minecraft
       prismlauncher

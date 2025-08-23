@@ -13,6 +13,9 @@
       ./../../nix-mod/game.nix
       ./../../nix-mod/nix-security-box/default.nix
       ./../../nix-mod/default.nix
+
+      "${inputs.nixos-hardware}/lenovo/thinkpad/x1-extreme/gen2"
+      "${inputs.nixos-hardware}/common/cpu/intel/coffee-lake"
     ];
 
   config = {
@@ -47,7 +50,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-zues"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -156,6 +159,7 @@
       git
       vim
       ranger
+      nvtop
 
       #minecraft
       prismlauncher

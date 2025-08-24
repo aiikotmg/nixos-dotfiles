@@ -6,6 +6,7 @@
     ./fonts
     ./discord
     ./media
+    ./godot
   ];
 
   environment.systemPackages = with pkgs; [

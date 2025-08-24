@@ -32,6 +32,8 @@
         # system
         fonts.enable = true;
 
+        godot.enable = true;
+
         #nix-security-box
         #https://github.com/fabaff/nix-security-box/
 

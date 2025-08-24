@@ -16,6 +16,7 @@
 
       "${inputs.nixos-hardware}/lenovo/thinkpad/x1-extreme/gen2"
       "${inputs.nixos-hardware}/common/cpu/intel/coffee-lake"
+      "${inputs.nixos-hardware}/common/gpu/nvidia/turing"
     ];
 
   config = {
@@ -72,7 +73,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "zues" = import ./home.nix;
+      "zeus" = import ./home.nix;
     };
   };
 
@@ -148,9 +149,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.zues = {
+  users.users.zeus= {
     isNormalUser = true;
-    description = "zues";
+    description = "zeus";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
 

@@ -154,6 +154,7 @@
 
       # system stuff
       kdePackages.kate
+      nvtopPackages.nvidia
       git
       vim
       ranger

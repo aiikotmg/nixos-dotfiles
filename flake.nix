@@ -65,7 +65,7 @@
                 #                                Architecture   Hostname
                 titan = mkSystem inputs.nixpkgs "x86_64-linux" "titan";
                 hermes = mkSystem inputs.nixpkgs "x86_64-linux" "hermes";
-                zues = mkSystem inputs.nixpkgs "x86_64-linux" "zues";
+                zeus = mkSystem inputs.nixpkgs "x86_64-linux" "zeus";
 
             };
     };

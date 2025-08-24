@@ -23,6 +23,13 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+  
+  fileSystems."/home/titan/ssd" =
+    { device = "/dev/disk/by-uuid/55d1bec1-633e-4d72-8a7c-b3a4bdc5bb54";
+      fsType = "ext4";
+#      options = [ "users" "nofail" ];
+      options = ["X-mount.owner=titan" "X-mount.group=users"];
+    };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/ad129d1f-bade-4302-80c7-d1e98534938f"; }

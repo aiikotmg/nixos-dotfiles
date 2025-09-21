@@ -3,6 +3,7 @@
 {
 
   imports = [
+    ./kde
     ./fonts
     ./discord
     ./media

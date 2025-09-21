@@ -62,6 +62,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+#  networking.resolvconf.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

@@ -4,6 +4,7 @@
   imports = [ 
     ./../../hm-mod/default.nix 
     ./../../bundles/dev.nix
+#    ./../../bundles/sway.nix
     inputs.nix-colors.homeManagerModules.default
     
   ];

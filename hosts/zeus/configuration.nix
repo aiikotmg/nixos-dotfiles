@@ -30,7 +30,7 @@
         # cli
 
         # system
-        kde.enable= true;
+        kde.enable = true;
 
         fonts.enable = true;
 

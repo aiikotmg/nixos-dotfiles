@@ -12,5 +12,7 @@
   environment.systemPackages = with pkgs; [
 
     rustdesk
+    davfs2
+
   ];
 }

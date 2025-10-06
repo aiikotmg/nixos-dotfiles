@@ -3,7 +3,8 @@
 {
   imports = [
     ./../../hm-mod/default.nix
-    ./../../bundles/swaydev.nix
+    ./../../bundles/sway.nix
+    ./../../bundles/dev.nix
     inputs.nix-colors.homeManagerModules.default
   ];
   config = {
@@ -13,7 +14,6 @@
         firefox.enable = true;
         
         # cli
-        foot.enable = true;
 
         # system
         wpaper.enable = true;

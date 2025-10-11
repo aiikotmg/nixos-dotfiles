@@ -12,7 +12,8 @@
 
   environment.systemPackages = with pkgs; [
 
-    rustdesk
+    media-downloader
+#    rustdesk
     davfs2
 
   ];

@@ -3,6 +3,8 @@
 {
      imports = [
         ../hm-mod/default.nix
+        ../nix-mod/default.nix
+
       ];
 
       config = {

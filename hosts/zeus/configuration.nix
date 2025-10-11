@@ -72,6 +72,10 @@
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
 
+  #docker stuff
+  virtualisation.docker.enable = true;
+
+
   services.tailscale.enable = true;
   services.mullvad-vpn.enable = true;
 
@@ -154,7 +158,7 @@
   users.users.zeus= {
     isNormalUser = true;
     description = "zeus";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [  "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [
 
       # system stuff

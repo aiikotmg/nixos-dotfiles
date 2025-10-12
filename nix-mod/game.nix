@@ -14,6 +14,8 @@
 
   environment.systemPackages = with pkgs; [
 
+    dotnetCorePackages.aspnetcore_9_0-bin
+#    dotnetCorePackages.aspnetcore-runtime_9_0
     mangohud
   ];
  

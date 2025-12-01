@@ -13,6 +13,7 @@
       ./../../nix-mod/game.nix
       ./../../nix-mod/nix-security-box/default.nix
       ./../../nix-mod/default.nix
+
     ];
 
   config = {
@@ -28,6 +29,7 @@
 
         # system
         kde.enable = true;
+        pixma.enable = true;
         fonts.enable = true;
 
         godot.enable = true;
@@ -72,6 +74,11 @@
 
   services.tailscale.enable = true;
   services.mullvad-vpn.enable = true;
+
+
+    # Enable virtualbox. Ref <https://nixos.wiki/wiki/Virtualbox>
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "titan" ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -161,14 +168,14 @@
       vim
       ranger
 
-     #minecraft
-     prismlauncher
+      #minecraft
+      prismlauncher
 
-     #media
-     tidal-hifi
-     miru
-     jellyfin-media-player
-     qbittorrent
+      #media
+      tidal-hifi
+      miru
+      jellyfin-media-player
+      qbittorrent
 
     ];
   };

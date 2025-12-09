@@ -38,6 +38,10 @@ in {
         trbld="sudo nixos-rebuild switch --flake /etc/nixos/#titan";
         trbldup="sudo nixos-rebuild switch --upgrade --flake /etc/nixos/#titan";
 
+        zrbld="sudo nixos-rebuild switch --flake /etc/nixos/#zeus";
+        zrbldup="sudo nixos-rebuild switch --upgrade --flake /etc/nixos/#zeus && nix-collect-garbage --delete-older-than 12d";
+
+
         mullup="mullvad connect && mullvad auto-connect set on && mullvad lockdown-mode set on";
         mulldown="mullvad disconnect && mullvad auto-connect set off && mullvad lockdown-mode set off";
 

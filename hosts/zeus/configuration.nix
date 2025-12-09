@@ -13,6 +13,10 @@
       ./../../nix-mod/game.nix
       ./../../nix-mod/nix-security-box/default.nix
       ./../../nix-mod/default.nix
+
+      "${inputs.nixos-hardware}/lenovo/thinkpad/x1-extreme/gen2"
+      "${inputs.nixos-hardware}/common/cpu/intel/coffee-lake"
+      "${inputs.nixos-hardware}/common/gpu/nvidia/turing"
     ];
 
   config = {
@@ -20,7 +24,6 @@
     modules = {
 
         # gui
-        discord.enable = true;
         media.enable = true;
 
 
@@ -28,6 +31,7 @@
 
         # system
         kde.enable = true;
+
         fonts.enable = true;
 
         godot.enable = true;
@@ -47,13 +51,10 @@
     };
 
 
-  services.davfs2.enable = true;
-
    # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-# vv breaks stuff, but fixes mullvad dns issue(?)
-#  networking.resolvconf.enable = false;
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -63,6 +64,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+#  networking.resolvconf.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -70,13 +72,17 @@
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
 
+  #docker stuff
+  virtualisation.docker.enable = true;
+
+
   services.tailscale.enable = true;
   services.mullvad-vpn.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "titan" = import ./home.nix;
+      "zeus" = import ./home.nix;
     };
   };
 
@@ -149,32 +155,30 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.titan = {
+  users.users.zeus= {
     isNormalUser = true;
-    description = "titan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    description = "zeus";
+    extraGroups = [  "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [
 
       # system stuff
-      nvtopPackages.nvidia
       git
       vim
       ranger
+      nvtopPackages.nvidia
 
-     #minecraft
-     prismlauncher
+      #minecraft
+      prismlauncher
 
-     #media
-     tidal-hifi
-     miru
-     jellyfin-media-player
-     qbittorrent
+      #media
+      tidal-hifi
+      miru
+      jellyfin-media-player
+      
 
     ];
   };
 
-  # Install firefox.
-#  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -199,35 +203,42 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.nvidia = {
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    nvidia = {
 
-    # Modesetting is required.
-    modesetting.enable = true;
+      # Modesetting is required.
+      modesetting.enable = true;
 
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
-    # of just the bare essentials.
-    powerManagement.enable = false;
+      # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+      # Enable this if you have graphical corruption issues or application crashes after waking
+      # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+      # of just the bare essentials.
+      powerManagement.enable = false;
 
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+      # Fine-grained power management. Turns off GPU when not in use.
+      # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+      powerManagement.finegrained = false;
 
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-    # Only available from driver 515.43.04+
-    open = false;
+      # Use the NVidia open source kernel module (not to be confused with the
+      # independent third-party "nouveau" open source driver).
+      # Support is limited to the Turing and later architectures. Full list of 
+      # supported GPUs is at: 
+      # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+      # Only available from driver 515.43.04+
+      open = false;
 
-    # Enable the Nvidia settings menu,
+      # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+      nvidiaSettings = true;
 
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      
+    };
   };
 
 

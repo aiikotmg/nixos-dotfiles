@@ -29,12 +29,7 @@
           #general sys
 #         base16-builder
 #         git
-          feh
-          ffmpeg
-          wget
           image-roll
-          busybox
-          vlc
           pavucontrol
           gnupg
           brightnessctl

@@ -11,7 +11,7 @@
     modules = {
         # gui
         firefox.enable = true;
-        
+        lutris.enable = true;        
         # cli
         foot.enable = true;
 

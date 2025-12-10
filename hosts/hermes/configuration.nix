@@ -268,6 +268,7 @@
     gcc
     librewolf
     firefox
+    ungoogled-chromium
     networkmanagerapplet
     killall
     

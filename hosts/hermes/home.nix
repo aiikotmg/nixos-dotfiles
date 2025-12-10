@@ -12,7 +12,7 @@
     modules = {
         # gui
         firefox.enable = true;
-        
+        lutris.enable = true;        
         # cli
 
         # system

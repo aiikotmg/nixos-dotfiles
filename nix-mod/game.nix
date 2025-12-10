@@ -11,6 +11,8 @@
 
     dotnetCorePackages.aspnetcore_9_0-bin
 #    dotnetCorePackages.aspnetcore-runtime_9_0
+    protontricks
+    protonup-qt
     oversteer
     mangohud
     wine

@@ -10,6 +10,8 @@ in {
         jellyfin-media-player
         miru
         piped
+        tidal-hifi
+        spotube
         mangayomi
       ];
     };

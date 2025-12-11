@@ -30,6 +30,7 @@
       
       modules = {
       #gui
+      media.enable = true;
 
       #cli
 

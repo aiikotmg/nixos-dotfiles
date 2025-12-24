@@ -14,6 +14,7 @@
     protontricks
     protonup-qt
     oversteer
+    linuxKernel.packages.linux_zen.new-lg4ff
     mangohud
     wine
   ];

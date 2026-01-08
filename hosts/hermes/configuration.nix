@@ -15,7 +15,6 @@
       inputs.home-manager.nixosModules.default
       ./hardware-configuration.nix
       ./../../nix-mod/1pass.nix
-      ./../../nix-mod/game.nix
       ./../../nix-mod/default.nix
       ./../../nix-mod/nix-security-box/default.nix
 
@@ -118,8 +117,8 @@
        turbo = "never";
     };
     charger = {
-       governor = "powersave"; #default: preformance
-       turbo = "never"; #default: auto
+       governor = "preformance"; #default: preformance
+       turbo = "auto"; #default: auto
     };
   };
 
@@ -189,13 +188,13 @@
 #    sensor.iio.enable = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
-    graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
+#    graphics = {
+#      enable = true;
+#      extraPackages = with pkgs; [
    
 
-      ];
-    };
+#      ];
+#    };
   };
 
 

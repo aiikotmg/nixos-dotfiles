@@ -8,11 +8,10 @@ in {
     config = mkIf cfg.enable {
       environment.systemPackages = with pkgs; [
         jellyfin-media-player
-        miru
         piped
         tidal-hifi
-        spotube
         mangayomi
+	
       ];
     };
 }

@@ -13,7 +13,6 @@
  
         home.packages = with pkgs; [
           #tools
-
           
           nil
           lua-language-server

@@ -3,7 +3,6 @@
 {
   imports = [
     ./../../hm-mod/default.nix
-    ./../../bundles/sway.nix
     ./../../bundles/dev.nix
     inputs.nix-colors.homeManagerModules.default
   ];
@@ -12,11 +11,11 @@
     modules = {
         # gui
         firefox.enable = true;
-        lutris.enable = true;        
+#        lutris.enable = true;        
         # cli
 
         # system
-        wpaper.enable = true;
+#        wpaper.enable = true;
 
     };
     home.stateVersion = "23.11";

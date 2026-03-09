@@ -29,7 +29,6 @@
 
         # system
         kde.enable = true;
-        pixma.enable = true;
         fonts.enable = true;
 
         godot.enable = true;
@@ -132,7 +131,7 @@
 
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+#  services.printing.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -168,13 +167,8 @@
       vim
       ranger
 
-      #minecraft
-      prismlauncher
 
       #media
-      tidal-hifi
-      miru
-      jellyfin-media-player
       qbittorrent
 
     ];

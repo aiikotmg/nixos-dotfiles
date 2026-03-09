@@ -35,6 +35,7 @@
 
       #system
       fonts.enable = true;
+      kde.enable = true;
 
       #nix-security-box
       #https://github.com/fabaff/nix-security-box/
@@ -262,14 +263,12 @@
 
   environment.systemPackages = with pkgs; [
  
-    kdePackages.krdc
     vim
     ranger
     gcc
     librewolf
     firefox
     ungoogled-chromium
-    networkmanagerapplet
     killall
     
   ];

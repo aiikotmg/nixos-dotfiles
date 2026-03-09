@@ -9,14 +9,24 @@
 
   environment.systemPackages = with pkgs; [
 
+    #system stuff
+    wine
+    mangohud
     dotnetCorePackages.aspnetcore_9_0-bin
 #    dotnetCorePackages.aspnetcore-runtime_9_0
     protontricks
     protonup-qt
+    #ffb
     oversteer
     linuxKernel.packages.linux_zen.new-lg4ff
-    mangohud
-    wine
+
+    #launchers
+    prismlauncher
+    #emulators
+    retroarch
+    dolphin-emu
+    pcsx2
+
   ];
  
 }

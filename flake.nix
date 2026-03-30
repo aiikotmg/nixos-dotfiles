@@ -63,6 +63,7 @@
             nixosConfigurations = {
                 # Now, defining a new system is can be done in one line
                 #                                Architecture   Hostname
+                apollo = mkSystem inputs.nixpkgs "x86_64-linux" "apollo";
                 titan = mkSystem inputs.nixpkgs "x86_64-linux" "titan";
                 hermes = mkSystem inputs.nixpkgs "x86_64-linux" "hermes";
                 zeus = mkSystem inputs.nixpkgs "x86_64-linux" "zeus";

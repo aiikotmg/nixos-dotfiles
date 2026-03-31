@@ -163,6 +163,7 @@
 
       # system stuff
       nvtopPackages.nvidia
+      kdePackages.krdc
       git
       vim
       ranger

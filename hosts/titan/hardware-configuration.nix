@@ -31,6 +31,12 @@
       options = ["X-mount.owner=titan" "X-mount.group=users"];
     };
 
+  fileSystems."/home/titan/wd" =
+    { device = "/dev/disk/by-uuid/653cac28-a8c7-4f8c-945f-e5f0d274d33a";
+      fsType = "ext4";
+      options = ["X-mount.owner=titan" "X-mount.group=users"];
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/ad129d1f-bade-4302-80c7-d1e98534938f"; }
     ];

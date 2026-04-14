@@ -12,6 +12,8 @@ in {
     config = mkIf cfg.enable {
       programs.neovim =  with config.colorScheme.palette; {
         enable = true;
+        withRuby = true;
+        withPython3 = true;
         plugins = with pkgs.vimPlugins; [
 #        LazyVim
 
@@ -51,7 +53,7 @@ in {
       ];
     
 
-      extraLuaConfig = "
+      initLua = "
    
        ${builtins.readFile ./nv.lua}
 

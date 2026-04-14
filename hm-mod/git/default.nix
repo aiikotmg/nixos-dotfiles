@@ -9,10 +9,12 @@ in {
     config = mkIf cfg.enable {
       programs.git = {
         enable = true;
-        package = pkgs.gitAndTools.gitFull;
+#        package = pkgs.gitAndTools.gitFull;
+        package = pkgs.gitFull;
         userName = "aiikotmg";
         userEmail = "sslerror@protonmail.com";
-        extraConfig = {
+#        signing.format = "opengpg";
+        settings = {
           init.defaultBranch = "main";
          color = { ui = "auto";};
           pull.rebase = "false";

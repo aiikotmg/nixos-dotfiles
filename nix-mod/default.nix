@@ -15,7 +15,7 @@
 
     media-downloader
 #    rustdesk
-    davfs2
+#    davfs2
     passh
   ];
 }

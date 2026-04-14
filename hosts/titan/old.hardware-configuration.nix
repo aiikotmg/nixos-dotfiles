@@ -10,20 +10,20 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/09a5bebe-774d-44d9-aee5-db4af0238365";
+    { device = "/dev/disk/by-uuid/94eaeec2-11c9-4a70-9b79-41882d91eca5";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0774-17C5";
+    { device = "/dev/disk/by-uuid/EB19-E2AC";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-
+  
   fileSystems."/home/titan/ssd" =
     { device = "/dev/disk/by-uuid/55d1bec1-633e-4d72-8a7c-b3a4bdc5bb54";
       fsType = "ext4";
@@ -38,7 +38,7 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/0b9a886e-abb5-47bb-99fd-3b0a9ec8d638"; }
+    [ { device = "/dev/disk/by-uuid/ad129d1f-bade-4302-80c7-d1e98534938f"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

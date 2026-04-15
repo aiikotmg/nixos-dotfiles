@@ -3,7 +3,6 @@
 {
   imports = [
     ./../../hm-mod/default.nix
-    ./../../bundles/dev.nix
     inputs.nix-colors.homeManagerModules.default
   ];
   config = {
@@ -16,6 +15,9 @@
 
         # system
 #        wpaper.enable = true;
+        git.enable = true;
+        zsh.enable = true;
+        nvim.enable = true;
 
     };
     home.stateVersion = "23.11";

@@ -156,7 +156,7 @@
   users.users.titan = {
     isNormalUser = true;
     description = "titan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "dialout" "wheel" ];
     packages = with pkgs; [
 
       # system stuff

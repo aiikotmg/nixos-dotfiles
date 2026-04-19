@@ -41,11 +41,11 @@
 
         #this would enable the entire pentesting toolkit at once, idk why i included it
         #nix-security-tool-box.enable = true;
-        common.enable = true;
-        exploits.enable = true;
-        pswd.enable = true;
-        web.enable = true;
-        reveng.enable = true;
+#        common.enable = true;
+#        exploits.enable = true;
+#        pswd.enable = true;
+#        web.enable = true;
+#        reveng.enable = true;
 
 
     };
@@ -166,15 +166,6 @@
       vim
       ranger
       nvtopPackages.nvidia
-
-      #minecraft
-      prismlauncher
-
-      #media
-      tidal-hifi
-      miru
-      jellyfin-media-player
-      
 
     ];
   };

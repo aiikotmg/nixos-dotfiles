@@ -14,7 +14,6 @@ in {
 
             # Install extensions from NUR
             extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-                onepassword-password-manager
                 decentraleyes
                 onepassword-password-manager
                 ublock-origin
@@ -23,6 +22,7 @@ in {
 #                darkreader
                 h264ify
                 df-youtube
+                proton-vpn
             ];
 
                 settings = {

@@ -15,6 +15,7 @@
       # gui
       lutris.enable = true;
       firefox.enable = true;
+      chromium.enable = true;
 
         # cli
 

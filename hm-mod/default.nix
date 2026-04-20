@@ -4,6 +4,7 @@
 
   imports = [
     ./alacritty
+    ./chromium
     ./foot
     ./firefox
     ./git

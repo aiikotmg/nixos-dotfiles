@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
@@ -18,35 +18,20 @@
       fsType = "ext4";
     };
 
+  fileSystems."/home/titan/ssd" =
+    { device = "/dev/disk/by-uuid/55d1bec1-633e-4d72-8a7c-b3a4bdc5bb54";
+      fsType = "ext4";
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/0774-17C5";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/home/titan/ssd" =
-    { device = "/dev/disk/by-uuid/55d1bec1-633e-4d72-8a7c-b3a4bdc5bb54";
-      fsType = "ext4";
-#      options = [ "users" "nofail" ];
-      options = ["X-mount.owner=titan" "X-mount.group=users"];
-    };
-
-  fileSystems."/home/titan/wd" =
-    { device = "/dev/disk/by-uuid/653cac28-a8c7-4f8c-945f-e5f0d274d33a";
-      fsType = "ext4";
-      options = ["X-mount.owner=titan" "X-mount.group=users"];
-    };
-
   swapDevices =
     [ { device = "/dev/disk/by-uuid/0b9a886e-abb5-47bb-99fd-3b0a9ec8d638"; }
     ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp34s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

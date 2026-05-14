@@ -47,6 +47,7 @@
 #       network.enable = true;
 
         common.enable = true;
+        reveng.enable = true;
     };
 
   #

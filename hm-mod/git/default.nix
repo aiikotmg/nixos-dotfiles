@@ -11,12 +11,14 @@ in {
         enable = true;
 #        package = pkgs.gitAndTools.gitFull;
         package = pkgs.gitFull;
-        userName = "aiikotmg";
-        userEmail = "sslerror@protonmail.com";
+#        userName = "aiikotmg";
+#        userEmail = "sslerror@protonmail.com";
 #        signing.format = "opengpg";
         settings = {
+          user.email = "sslerror@protonmail.com";
+          user.name = "aiikotmg";
           init.defaultBranch = "main";
-         color = { ui = "auto";};
+          color = { ui = "auto";};
           pull.rebase = "false";
           core.editor = "nvim";
         };
